@@ -29,12 +29,13 @@ class RenderOutput:
 
 class NVDiffRastContextWrapper:
     def __init__(self, device: str, context_type: str = "gl"):
-        if context_type == "gl":
-            self.ctx = dr.RasterizeGLContext(device=device)
-        elif context_type == "cuda":
-            self.ctx = dr.RasterizeCudaContext(device=device)
-        else:
-            raise NotImplementedError
+        # if context_type == "gl":
+        #     self.ctx = dr.RasterizeGLContext(device=device)
+        # elif context_type == "cuda":
+        #     self.ctx = dr.RasterizeCudaContext(device=device)
+        # else:
+        #     raise NotImplementedError
+        self.ctx = dr.RasterizeCudaContext(device=device)
 
     def rasterize(self, pos, tri, resolution, ranges=None, grad_db=True):
         """
