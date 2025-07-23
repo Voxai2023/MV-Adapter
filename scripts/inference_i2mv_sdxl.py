@@ -130,16 +130,14 @@ def run_pipeline(
     azimuth_deg=None,
 ):
     # Prepare cameras
-    if azimuth_deg is None:
-        azimuth_deg = [0, 45, 90, 180, 270, 315]
     cameras = get_orthogonal_camera(
-        elevation_deg=[0] * num_views,
+        elevation_deg=[0, 0, 0, 0, 89.99, -89.99],
         distance=[1.8] * num_views,
         left=-0.55,
         right=0.55,
         bottom=-0.55,
         top=0.55,
-        azimuth_deg=[x - 90 for x in azimuth_deg],
+        azimuth_deg=[x - 90 for x in [0, 90, 180, 270, 180, 180]],
         device=device,
     )
 
